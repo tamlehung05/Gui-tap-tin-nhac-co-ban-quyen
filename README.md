@@ -18,11 +18,11 @@ Hệ thống mô phỏng việc gửi tập tin nhạc có bản quyền giữa 
 
 🔧 Công nghệ sử dụng
 
-Python 3.x
+`Python 3.x`
 
-PyCryptodome
+`PyCryptodome`
 
-Socket TCP/IP
+`Socket TCP/IP`
 
 Thuật toán: RSA (1024-bit), Triple DES, DES, SHA-512
 
@@ -41,13 +41,13 @@ Handshake: Client gửi "Hello!" → Server phản hồi "Ready!".
 
 Trao khóa:
 
-Client tạo session_key (24 byte cho Triple DES).
+Client tạo `session_key` (24 byte cho Triple DES).
 
 Mã hóa session_key bằng RSA (PKCS1_OAEP).
 
 Mã hóa:
 
-Mã hóa song.mp3 bằng Triple DES.
+Mã hóa `song.mp3` bằng Triple DES.
 
 Mã hóa metadata bằng DES.
 
@@ -59,12 +59,12 @@ Nhận: Server giải mã, kiểm hash, ghi file, gửi ACK.
 
 ⚖️ Gói JSON gửi đi
 
-{
+`{
   "iv": "Base64",
   "cipher": "Base64",
   "meta": "Base64",
   "hash": "SHA-512 hex"
-}
+}`
 
 ✨ Cách chạy
 
@@ -76,39 +76,30 @@ Tự động tạo receiver_private_key.pem nếu chưa có.
 
 Bời người gửi (Client)
 
-Copy receiver_public_key.pem từ server sang.
+Copy `receiver_public_key.pem` từ server sang.
 
 Chạy:
 
-python nguoi_gui.py
+`python nguoi_gui.py`
 
-Nhập đường dẫn tới file song.mp3
+Nhập đường dẫn tới file `song.mp3`
 
 📄 Kết quả mô phỏng
 
-✅ File nhạc được mã hóa gửi sang, lưu lại với tên song.mp3
+✅ File nhạc được mã hóa gửi sang, lưu lại với tên `song.mp3`
 
 📝 Metadata in ra:
 
 Metadata: TênBàiHát: Xa Em | Nghệ Sĩ: Thanh Hưng | ID Bản Quyền: ABCXYZ123
 
 📅 Nhóm thực hiện
+  
+| Họ và Tên                   | Vai trò                                                                                                                       |
+|-----------------------------|-------------------------------------------------------------------------------------------------------------------------------|
+|Lê Hưng Tâm             | Phát triển mã nguồn (`nguoi_nhan.py`, `nguoi_gui.py`, `song.mp3`) và triển khai các thuật toán mã hóa, giải mã, ký số. |
+|Trịnh Kiều Trinh   | Phát triển mã nguồn báo cáo trên Overleaf, |
+| Nguyễn Hữu Bảo| Tìm kiếm TripleDES, RSA, SHA-512 và các giao thức bảo mật. |
 
-Họ và tên
-
-Vai trò
-
-Lê Hưng Tâm
-
-Viết mã client + server, logic trao đổi khóa
-
-Nguyễn Hữu Bảo
-
-Mã hóa/giải mã file, DES & Triple DES
-
-Trịnh Kiều Trinh
-
-Viết README, mô phỏng test socket LAN
 
 🔐 Ghi chú
 
